@@ -1,0 +1,28 @@
+--- 
+components: 
+  schemas: 
+    BenchmarkReference: 
+      $ref: "https://raw.githubusercontent.com/POORT8/poort8.dvu.datamodels/feature/benchmark-entities/models/BenchmarkReference.yaml#/components/schemas/BenchmarkReference"
+    BenchmarkSnapshot:      
+      $ref: "https://raw.githubusercontent.com/POORT8/poort8.dvu.datamodels/feature/benchmark-entities/models/BenchmarkSnapshot.yaml#/components/schemas/BenchmarkSnapshot"
+    EanLookup:      
+      $ref: "https://raw.githubusercontent.com/POORT8/poort8.dvu.datamodels/feature/benchmark-entities/models/EanLookup.yaml#/components/schemas/EanLookup"
+info: 
+  description: "Model Definitions for DVU"
+  title: DVU Benchmark data models
+  version: "0.1.0"
+openapi: "3.0.0"
+
+
+# These paths are merely representative.
+paths: 
+  /ngsi-ld/v1/entities: 
+    get: 
+      responses: 
+        ? "200"
+        : 
+          description:  OK
+          content: 
+            application/ld+json: 
+              schema: 
+                type: object

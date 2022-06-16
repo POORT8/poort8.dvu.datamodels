@@ -17,15 +17,35 @@ components:
           $ref: "https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml#/components/schemas/VerblijfsobjectIdentificatie"
         eans:
           type: array
-          description: "#TODO reference to EDSN"
+          description: "Array of the EAN allocatiepunt of the (smart) energy meter in EAN18 as defined by EDSN in https://www.gasunietransportservices.nl/uploads/fckconnector/3b23aa43-ee93-46fb-b512-d4b7b35501d1/2951980410/Wholesale%20gas%20-%20TS_XML_AllocationReconciliationMessagingProcess%20v2.0%2027012014.pdf?lang=nl&usg=AOvVaw2Sg-YtjAG-df8vHLUuGQ_d"
           items:
-            type: string
+            type: integer
+            x-ngsi:
+              type: property
         adresWeergaveNaam:
           $ref: "https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml#/components/schemas/Adres/properties/korteNaam"
         gebruiksdoelen:
           type: array
           items:
             $ref: "https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml#/components/schemas/Gebruiksdoel"
+        oppervlakte:
+           # $ref: "https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml#/components/schemas/AdresUitgebreid/properties/oppervlakte"
+           description: "Reference error due to allOf in Kadaster-definition"
+           type: number
+        calendarYear:
+            type: number
+            description: "Reference year for the benchmark"
+            x-ngsi: 
+              model: "https://www.w3.org/TR/xmlschema-2/#gYear"
+              type: Property
+        grossUsageYear:
+            allOf:
+            - $ref: "https://raw.githubusercontent.com/smart-data-models/dataModel.Device/master/SmartMeteringObservation/model.yaml#/SmartMeteringObservation/properties/totalConsumption"
+            - description: "Annual consumption based on reported consumption for provided eans in kWh/m2"
+        benchmarkUsage:
+          # $ref: "https://raw.githubusercontent.com/POORT8/poort8.dvu.datamodels/feature/benchmark-entities/contextbroker.yaml#/BenchmarkReference/properties/referenceValue"
+           description: "Reference error due to allOf in BenchmarkReference-definition"
+           type: number
 info: 
   description: "Model Definitions for DVU"
   title: DVU BenchmarkSnapshot data model 

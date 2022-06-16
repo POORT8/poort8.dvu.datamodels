@@ -13,8 +13,19 @@ components:
           ## Data Model
           For a full description of the following attributes refer to DVU [DVU documentation](https://example.com)
       properties: 
-        Test:
-          type: number
+        verblijfObjectIdentificatie:
+          $ref: "https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml#/components/schemas/VerblijfsobjectIdentificatie"
+        eans:
+          type: array
+          description: "#TODO reference to EDSN"
+          items:
+            type: string
+        adresWeergaveNaam:
+          $ref: "https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml#/components/schemas/Adres/properties/korteNaam"
+        gebruiksdoelen:
+          type: array
+          items:
+            $ref: "https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml#/components/schemas/Gebruiksdoel"
 info: 
   description: "Model Definitions for DVU"
   title: DVU BenchmarkSnapshot data model 

@@ -4,9 +4,9 @@ components:
     BenchmarkReference: 
       $ref: "models/BenchmarkReference.yaml#/components/schemas/BenchmarkReference"
     BenchmarkSnapshot:      
-      $ref: "https://raw.githubusercontent.com/POORT8/poort8.dvu.datamodels/feature/benchmark-entities/models/BenchmarkSnapshot.yaml#/components/schemas/BenchmarkSnapshot"
+      $ref: "models/BenchmarkSnapshot.yaml#/components/schemas/BenchmarkSnapshot"
     EanLookup:      
-      $ref: "https://raw.githubusercontent.com/POORT8/poort8.dvu.datamodels/feature/benchmark-entities/models/EanLookup.yaml#/components/schemas/EanLookup"
+      $ref: "models/EanLookup.yaml#/components/schemas/EanLookup"
 info: 
   description: "Model Definitions for DVU"
   title: DVU Benchmark data models

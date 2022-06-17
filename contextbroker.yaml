@@ -2,7 +2,7 @@
 components: 
   schemas: 
     BenchmarkReference: 
-      $ref: "https://raw.githubusercontent.com/POORT8/poort8.dvu.datamodels/feature/benchmark-entities/models/BenchmarkReference.yaml#/components/schemas/BenchmarkReference"
+      $ref: "models/BenchmarkReference.yaml#/components/schemas/BenchmarkReference"
     BenchmarkSnapshot:      
       $ref: "https://raw.githubusercontent.com/POORT8/poort8.dvu.datamodels/feature/benchmark-entities/models/BenchmarkSnapshot.yaml#/components/schemas/BenchmarkSnapshot"
     EanLookup:      

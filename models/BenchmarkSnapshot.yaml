@@ -43,9 +43,9 @@ components:
             - $ref: "https://raw.githubusercontent.com/smart-data-models/dataModel.Device/master/SmartMeteringObservation/model.yaml#/SmartMeteringObservation/properties/totalConsumption"
             - description: "Annual consumption based on reported consumption for provided eans in kWh/m2"
         benchmarkUsage:
-          # $ref: "https://raw.githubusercontent.com/POORT8/poort8.dvu.datamodels/feature/benchmark-entities/contextbroker.yaml#/BenchmarkReference/properties/referenceValue"
-           description: "Reference error due to allOf in BenchmarkReference-definition"
-           type: number
+           $ref: "../contextbroker.yaml#/BenchmarkReference/properties/referenceValue"
+           # description: "Reference error due to allOf in BenchmarkReference-definition"
+           # type: number
 info: 
   description: "Model Definitions for DVU"
   title: DVU BenchmarkSnapshot data model 

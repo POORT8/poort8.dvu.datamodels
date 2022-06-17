@@ -53,11 +53,11 @@ components:
              type: number
         gebruiksdoelTerugmelding:
            allOf:
-           - $ref: "#/components/schemas/BenchmarkSnapshot/gebruiksdoelen/items"
+           - $ref: "#/components/schemas/BenchmarkSnapshot/properties/gebruiksdoelen/items"
            - description: "Building usage as reported by the user to the BAG as 'Terugmeldverzoek'"
         grossUsageYearTerugmelding:
            allOf:
-           - $ref: "#/components/schemas/BenchmarkSnapshot/grossUsageYear"
+           - $ref: "#/components/schemas/BenchmarkSnapshot/properties/grossUsageYear"
            - description: "Annual consumption in kWh/m2 using values as reported by the user as 'Terugmeldverzoek'"
 info: 
   description: "Model Definitions for DVU"

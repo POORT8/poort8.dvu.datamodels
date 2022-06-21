@@ -44,7 +44,7 @@ components:
             type: number
         benchmarkUsage:
            #$ref: "../contextbroker.yaml#/BenchmarkReference/properties/referenceValue"
-            description: "Reference error due to allOf in BenchmarkReference-definition"
+            description: "BenchmarkReference value for this building"
             type: number
         oppervlakteTerugmelding:
           $ref: "https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml#/components/schemas/AdresUitgebreid/properties/oppervlakte"
@@ -60,6 +60,12 @@ components:
            #- 
            $ref: "#/components/schemas/BenchmarkSnapshot/properties/grossUsageYear"
            #- description: "Annual consumption in kWh/m2 using values as reported by the user as 'Terugmeldverzoek'"
+        benchmarkUsageTerugmelding:
+          $ref: "#/components/schemas/BenchmarkSnapshot/properties/benchmarkUsage"
+          #- description: "BenchmarkReference value for this building as reported by the user as 'Terugmeldverzoek'"
+        netUsageYearWeii:
+          $ref: "#/components/schemas/BenchmarkSnapshot/properties/grossUsageYear"
+          #- description: "Net usage in kWh/m2 based on the reported WEii protocol data."
 info: 
   description: "Model Definitions for DVU"
   title: DVU BenchmarkSnapshot data model 

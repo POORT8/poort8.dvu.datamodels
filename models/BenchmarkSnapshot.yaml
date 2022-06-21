@@ -39,26 +39,27 @@ components:
               model: "https://www.w3.org/TR/xmlschema-2/#gYear"
               type: Property
         grossUsageYear:
-            allOf:
-            - $ref: "https://raw.githubusercontent.com/smart-data-models/dataModel.Device/master/SmartMeteringObservation/model.yaml#/SmartMeteringObservation/properties/totalConsumption"
-            - description: "Annual consumption based on reported consumption for provided eans in kWh/m2"
+            #$ref: "https://raw.githubusercontent.com/smart-data-models/dataModel.Device/master/SmartMeteringObservation/model.yaml#/SmartMeteringObservation/properties/totalConsumption"
+            description: "Annual consumption based on reported consumption for provided eans in kWh/m2"
+            type: number
         benchmarkUsage:
            $ref: "../contextbroker.yaml#/BenchmarkReference/properties/referenceValue"
            # description: "Reference error due to allOf in BenchmarkReference-definition"
            # type: number
         oppervlakteTerugmelding:
-           allOf:
    #        - $ref: "https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml#/components/schemas/AdresUitgebreid/properties/oppervlakte"
-           - description: "Area as reported by the user to the BAG as 'Terugmeldverzoek'"
-             type: number
+          description: "Area as reported by the user to the BAG as 'Terugmeldverzoek'"
+          type: number
         gebruiksdoelTerugmelding:
-           allOf:
-           - $ref: "#/components/schemas/BenchmarkSnapshot/properties/gebruiksdoelen/items"
-           - description: "Building usage as reported by the user to the BAG as 'Terugmeldverzoek'"
+           #allOf:
+           #- 
+           $ref: "#/components/schemas/BenchmarkSnapshot/properties/gebruiksdoelen/items"
+           #- description: "Building usage as reported by the user to the BAG as 'Terugmeldverzoek'"
         grossUsageYearTerugmelding:
-           allOf:
-           - $ref: "#/components/schemas/BenchmarkSnapshot/properties/grossUsageYear"
-           - description: "Annual consumption in kWh/m2 using values as reported by the user as 'Terugmeldverzoek'"
+           #allOf:
+           #- 
+           $ref: "#/components/schemas/BenchmarkSnapshot/properties/grossUsageYear"
+           #- description: "Annual consumption in kWh/m2 using values as reported by the user as 'Terugmeldverzoek'"
 info: 
   description: "Model Definitions for DVU"
   title: DVU BenchmarkSnapshot data model 

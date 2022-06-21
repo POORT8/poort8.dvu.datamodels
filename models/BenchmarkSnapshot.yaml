@@ -43,13 +43,13 @@ components:
             description: "Annual consumption based on reported consumption for provided eans in kWh/m2"
             type: number
         benchmarkUsage:
-           $ref: "../contextbroker.yaml#/BenchmarkReference/properties/referenceValue"
-           # description: "Reference error due to allOf in BenchmarkReference-definition"
-           # type: number
+           #$ref: "../contextbroker.yaml#/BenchmarkReference/properties/referenceValue"
+            description: "Reference error due to allOf in BenchmarkReference-definition"
+            type: number
         oppervlakteTerugmelding:
-   #        - $ref: "https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml#/components/schemas/AdresUitgebreid/properties/oppervlakte"
-          description: "Area as reported by the user to the BAG as 'Terugmeldverzoek'"
-          type: number
+          $ref: "https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml#/components/schemas/AdresUitgebreid/properties/oppervlakte"
+          #description: "Area as reported by the user to the BAG as 'Terugmeldverzoek'"
+          #type: number
         gebruiksdoelTerugmelding:
            #allOf:
            #- 

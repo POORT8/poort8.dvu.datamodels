@@ -1,0 +1,87 @@
+--- 
+components: 
+  schemas: 
+    BenchmarkSnapshot:      
+      allOf: 
+        - $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/ngsi-ld.yaml#/Common"
+      description: |
+          This entity contains a harmonised description of a BenchmarkSnapshot. This entity is used to store the snapshot of an energy usage benchmark made through DVU. Each benchmark is associated with a 'Verblijfsobject' as defined by the BAG, and holds information about the following:
+          - Gross energy usage per m2
+          - Adjusted gross energy usage per m2 (optional), if BAG correction is pending
+          - Nett energy usage (optional), based on user adjustments by the WEii-protocol.
+          
+          ## Data Model
+          For a full description of the following attributes refer to DVU [DVU documentation](https://example.com)
+      properties: 
+        verblijfObjectIdentificatie:
+          $ref: "https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml#/components/schemas/VerblijfsobjectIdentificatie"
+        eans:
+          type: array
+          description: "Array of the EAN allocatiepunt of the (smart) energy meter in EAN18 as defined by EDSN in https://www.gasunietransportservices.nl/uploads/fckconnector/3b23aa43-ee93-46fb-b512-d4b7b35501d1/2951980410/Wholesale%20gas%20-%20TS_XML_AllocationReconciliationMessagingProcess%20v2.0%2027012014.pdf?lang=nl&usg=AOvVaw2Sg-YtjAG-df8vHLUuGQ_d"
+          items:
+            type: integer
+            x-ngsi:
+              type: property
+        adresWeergaveNaam:
+          $ref: "https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml#/components/schemas/Adres/properties/korteNaam"
+        gebruiksdoelen:
+          type: array
+          items:
+            $ref: "https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml#/components/schemas/Gebruiksdoel"
+        oppervlakte:
+           # $ref: "https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml#/components/schemas/AdresUitgebreid/properties/oppervlakte"
+           description: "Reference error due to allOf in Kadaster-definition"
+           type: number
+        calendarYear:
+            type: number
+            description: "Reference year for the benchmark"
+            x-ngsi: 
+              model: "https://www.w3.org/TR/xmlschema-2/#gYear"
+              type: Property
+        grossUsageYear:
+            #$ref: "https://raw.githubusercontent.com/smart-data-models/dataModel.Device/master/SmartMeteringObservation/model.yaml#/SmartMeteringObservation/properties/totalConsumption"
+            description: "Annual consumption based on reported consumption for provided eans in kWh/m2"
+            type: number
+        benchmarkUsage:
+           #$ref: "../contextbroker.yaml#/BenchmarkReference/properties/referenceValue"
+            description: "BenchmarkReference value for this building"
+            type: number
+        oppervlakteTerugmelding:
+          #$ref: "https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml#/components/schemas/AdresUitgebreid/properties/oppervlakte"
+          description: "Area as reported by the user to the BAG as 'Terugmeldverzoek'"
+          type: number
+        gebruiksdoelTerugmelding:
+           #allOf:
+           #- 
+           $ref: "#/components/schemas/BenchmarkSnapshot/properties/gebruiksdoelen/items"
+           #- description: "Building usage as reported by the user to the BAG as 'Terugmeldverzoek'"
+        grossUsageYearTerugmelding:
+           #allOf:
+           #- 
+           $ref: "#/components/schemas/BenchmarkSnapshot/properties/grossUsageYear"
+           #- description: "Annual consumption in kWh/m2 using values as reported by the user as 'Terugmeldverzoek'"
+        benchmarkUsageTerugmelding:
+          $ref: "#/components/schemas/BenchmarkSnapshot/properties/benchmarkUsage"
+          #- description: "BenchmarkReference value for this building as reported by the user as 'Terugmeldverzoek'"
+        netUsageYearWeii:
+          $ref: "#/components/schemas/BenchmarkSnapshot/properties/grossUsageYear"
+          #- description: "Net usage in kWh/m2 based on the reported WEii protocol data."
+info: 
+  description: "Model Definitions for DVU"
+  title: DVU BenchmarkSnapshot data model 
+  version: "0.1.0"
+openapi: "3.0.0"
+
+
+# These paths are merely representative.
+paths: 
+  /ngsi-ld/v1/entities: 
+    get: 
+      responses: 
+        ? "200"
+        : 
+          description:  OK
+          content: 
+            application/ld+json: 
+              schema: 
+                type: object

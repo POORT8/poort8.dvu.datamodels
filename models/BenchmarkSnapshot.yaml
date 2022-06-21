@@ -47,9 +47,9 @@ components:
             description: "BenchmarkReference value for this building"
             type: number
         oppervlakteTerugmelding:
-          $ref: "https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml#/components/schemas/AdresUitgebreid/properties/oppervlakte"
-          #description: "Area as reported by the user to the BAG as 'Terugmeldverzoek'"
-          #type: number
+          #$ref: "https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml#/components/schemas/AdresUitgebreid/properties/oppervlakte"
+          description: "Area as reported by the user to the BAG as 'Terugmeldverzoek'"
+          type: number
         gebruiksdoelTerugmelding:
            #allOf:
            #- 

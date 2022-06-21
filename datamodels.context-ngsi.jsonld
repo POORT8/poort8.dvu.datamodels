@@ -1,0 +1,31 @@
+{
+    "@context": {
+        "type": "@type",
+        "id": "@id",
+        "ngsi-ld": "https://uri.etsi.org/ngsi-ld/",
+        "fiware": "https://uri.fiware.org/ns/data-models#",
+        "schema": "https://schema.org/",
+        "BenchmarkReference": "fiware:BenchmarkReference",
+        "BenchmarkSnapshot": "fiware:BenchmarkSnapshot",
+        "EanLookup": "fiware:EanLookup",
+        "Test": "fiware:Test",
+        "adresWeergaveNaam": "fiware:adresWeergaveNaam",
+        "benchmarkUsage": "fiware:benchmarkUsage",
+        "benchmarkUsageTerugmelding": "fiware:benchmarkUsageTerugmelding",
+        "buildingUsage": "fiware:buildingUsage",
+        "calendarYear": "fiware:calendarYear",
+        "constructionPeriod": "fiware:constructionPeriod",
+        "dateCreated": "fiware:dateCreated",
+        "dateModified": "fiware:dateModified",
+        "eans": "fiware:eans",
+        "gebruiksdoelTerugmelding": "fiware:gebruiksdoelTerugmelding",
+        "gebruiksdoelen": "fiware:gebruiksdoelen",
+        "grossUsageYear": "fiware:grossUsageYear",
+        "grossUsageYearTerugmelding": "fiware:grossUsageYearTerugmelding",
+        "netUsageYearWeii": "fiware:netUsageYearWeii",
+        "oppervlakte": "fiware:oppervlakte",
+        "oppervlakteTerugmelding": "fiware:oppervlakteTerugmelding",
+        "referenceValue": "fiware:referenceValue",
+        "verblijfObjectIdentificatie": "fiware:verblijfObjectIdentificatie"
+    }
+}

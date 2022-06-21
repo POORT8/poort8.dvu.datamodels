@@ -1,0 +1,389 @@
+{
+    "@context": {
+        "type": "@type",
+        "id": "@id",
+        "ngsi-ld": "https://uri.etsi.org/ngsi-ld/",
+        "fiware": "https://uri.fiware.org/ns/data-models#",
+        "schema": "https://schema.org/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "BenchmarkReference": "fiware:BenchmarkReference",
+        "BenchmarkSnapshot": "fiware:BenchmarkSnapshot",
+        "EanLookup": "fiware:EanLookup",
+        "Test": {
+            "@id": "fiware:Test",
+            "@type": "xsd:number"
+        },
+        "adresWeergaveNaam": {
+            "@id": "fiware:adresWeergaveNaam",
+            "@type": "xsd:string"
+        },
+        "benchmarkUsage": {
+            "@id": "fiware:benchmarkUsage",
+            "@type": "xsd:number"
+        },
+        "benchmarkUsageTerugmelding": {
+            "@id": "fiware:benchmarkUsageTerugmelding",
+            "@type": "xsd:number"
+        },
+        "buildingUsage": {
+            "@id": "fiware:buildingUsage",
+            "@type": "xsd:string"
+        },
+        "calendarYear": {
+            "@id": "fiware:calendarYear",
+            "@type": "xsd:number"
+        },
+        "constructionPeriod": {
+            "@id": "fiware:constructionPeriod",
+            "@type": "xsd:undefined"
+        },
+        "dateCreated": {
+            "@id": "fiware:dateCreated",
+            "@type": "xs:dateTime"
+        },
+        "dateModified": {
+            "@id": "fiware:dateModified",
+            "@type": "xs:dateTime"
+        },
+        "eans": {
+            "@id": "fiware:eans",
+            "@type": "xsd:array"
+        },
+        "gebruiksdoelTerugmelding": {
+            "@id": "fiware:gebruiksdoelTerugmelding",
+            "@type": "xsd:string"
+        },
+        "gebruiksdoelen": {
+            "@id": "fiware:gebruiksdoelen",
+            "@type": "xsd:array"
+        },
+        "grossUsageYear": {
+            "@id": "fiware:grossUsageYear",
+            "@type": "xsd:number"
+        },
+        "grossUsageYearTerugmelding": {
+            "@id": "fiware:grossUsageYearTerugmelding",
+            "@type": "xsd:number"
+        },
+        "netUsageYearWeii": {
+            "@id": "fiware:netUsageYearWeii",
+            "@type": "xsd:number"
+        },
+        "oppervlakte": {
+            "@id": "fiware:oppervlakte",
+            "@type": "xsd:number"
+        },
+        "oppervlakteTerugmelding": {
+            "@id": "fiware:oppervlakteTerugmelding",
+            "@type": "xsd:number"
+        },
+        "referenceValue": {
+            "@id": "fiware:referenceValue",
+            "@type": "xsd:number"
+        },
+        "verblijfObjectIdentificatie": {
+            "@id": "fiware:verblijfObjectIdentificatie",
+            "@type": "xsd:string"
+        }
+    },
+    "@graph": [
+        {
+            "@id": "fiware:BenchmarkReference",
+            "@type": "rdfs:Class",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": "This entity contains a harmonised description of a BenchmarkReference. This entity is associated with utility building categories based on BAG data, compared to the BAG data model for 'gebruiksdoelen' of 'Verblijfsobjecten', the following changes are introduced:\n- Energy usage reference data is added.\n- Construction periods are introduced, using the format of the 'oorspronkelijkBouwjaar'.\n\n## Data Model\nFor a full description of the following attributes refer to DVU [DVU documentation](https://example.com)"
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "BenchmarkReference"
+                }
+            ],
+            "rdfs:subClassOf": {
+                "@id": "schema:Thing"
+            }
+        },
+        {
+            "@id": "fiware:BenchmarkSnapshot",
+            "@type": "rdfs:Class",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": "This entity contains a harmonised description of a BenchmarkSnapshot. This entity is used to store the snapshot of an energy usage benchmark made through DVU. Each benchmark is associated with a 'Verblijfsobject' as defined by the BAG, and holds information about the following:\n- Gross energy usage per m2\n- Adjusted gross energy usage per m2 (optional), if BAG correction is pending\n- Nett energy usage (optional), based on user adjustments by the WEii-protocol.\n\n## Data Model\nFor a full description of the following attributes refer to DVU [DVU documentation](https://example.com)"
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "BenchmarkSnapshot"
+                }
+            ],
+            "rdfs:subClassOf": {
+                "@id": "schema:Thing"
+            }
+        },
+        {
+            "@id": "fiware:EanLookup",
+            "@type": "rdfs:Class",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": "This entity contains a harmonised description of a EanLookup. This entity allows reverse lookup of the 'AdresseerbaarObjecId' from the BAG, based on known EAN nummers of energy meters.\n\n## Data Model\nFor a full description of the following attributes refer to DVU [DVU documentation](https://example.com)"
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "EanLookup"
+                }
+            ],
+            "rdfs:subClassOf": {
+                "@id": "schema:Thing"
+            }
+        },
+        {
+            "@id": "fiware:referenceValue",
+            "@type": "ngsi-ld:Property",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": "Reference value of energy use [kWh per m2] for this buildingUsage and constructionPeriod"
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "referenceValue"
+                }
+            ]
+        },
+        {
+            "@id": "fiware:constructionPeriod",
+            "@type": "ngsi-ld:Property",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": ""
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "constructionPeriod"
+                }
+            ]
+        },
+        {
+            "@id": "fiware:verblijfObjectIdentificatie",
+            "@type": "ngsi-ld:Property",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": "Deze wordt gebruikt in de operation."
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "verblijfObjectIdentificatie"
+                }
+            ]
+        },
+        {
+            "@id": "fiware:eans",
+            "@type": "ngsi-ld:Property",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": "Array of the EAN allocatiepunt of the (smart) energy meter in EAN18 as defined by EDSN in https://www.gasunietransportservices.nl/uploads/fckconnector/3b23aa43-ee93-46fb-b512-d4b7b35501d1/2951980410/Wholesale%20gas%20-%20TS_XML_AllocationReconciliationMessagingProcess%20v2.0%2027012014.pdf?lang=nl&usg=AOvVaw2Sg-YtjAG-df8vHLUuGQ_d"
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "eans"
+                }
+            ]
+        },
+        {
+            "@id": "fiware:adresWeergaveNaam",
+            "@type": "ngsi-ld:Property",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": "De officiële openbare ruimte naam als deze niet langer is dan 24 tekens of de volgens de NEN5825 verkorte naam van maximaal 24 tekens."
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "adresWeergaveNaam"
+                }
+            ]
+        },
+        {
+            "@id": "fiware:gebruiksdoelen",
+            "@type": "ngsi-ld:Property",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": ""
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "gebruiksdoelen"
+                }
+            ]
+        },
+        {
+            "@id": "fiware:oppervlakte",
+            "@type": "ngsi-ld:Property",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": "Reference error due to allOf in Kadaster-definition"
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "oppervlakte"
+                }
+            ]
+        },
+        {
+            "@id": "fiware:calendarYear",
+            "@type": "ngsi-ld:Property",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": "Reference year for the benchmark"
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "calendarYear"
+                }
+            ]
+        },
+        {
+            "@id": "fiware:grossUsageYear",
+            "@type": "ngsi-ld:Property",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": "Annual consumption based on reported consumption for provided eans in kWh/m2"
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "grossUsageYear"
+                }
+            ]
+        },
+        {
+            "@id": "fiware:benchmarkUsage",
+            "@type": "ngsi-ld:Property",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": "BenchmarkReference value for this building"
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "benchmarkUsage"
+                }
+            ]
+        },
+        {
+            "@id": "fiware:oppervlakteTerugmelding",
+            "@type": "ngsi-ld:Property",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": "Area as reported by the user to the BAG as 'Terugmeldverzoek'"
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "oppervlakteTerugmelding"
+                }
+            ]
+        },
+        {
+            "@id": "fiware:grossUsageYearTerugmelding",
+            "@type": "ngsi-ld:Property",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": "Annual consumption based on reported consumption for provided eans in kWh/m2"
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "grossUsageYearTerugmelding"
+                }
+            ]
+        },
+        {
+            "@id": "fiware:benchmarkUsageTerugmelding",
+            "@type": "ngsi-ld:Property",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": "BenchmarkReference value for this building"
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "benchmarkUsageTerugmelding"
+                }
+            ]
+        },
+        {
+            "@id": "fiware:netUsageYearWeii",
+            "@type": "ngsi-ld:Property",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": "Annual consumption based on reported consumption for provided eans in kWh/m2"
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "netUsageYearWeii"
+                }
+            ]
+        },
+        {
+            "@id": "fiware:Test",
+            "@type": "ngsi-ld:Property",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": ""
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "Test"
+                }
+            ]
+        }
+    ]
+}

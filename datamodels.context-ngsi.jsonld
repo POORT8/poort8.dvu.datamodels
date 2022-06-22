@@ -18,6 +18,7 @@
         "dateCreated": "fiware:dateCreated",
         "dateModified": "fiware:dateModified",
         "eans": "fiware:eans",
+        "ean": "fiware:ean",
         "gebruiksdoelTerugmelding": "fiware:gebruiksdoelTerugmelding",
         "gebruiksdoelen": "fiware:gebruiksdoelen",
         "grossUsageYear": "fiware:grossUsageYear",
@@ -26,6 +27,9 @@
         "oppervlakte": "fiware:oppervlakte",
         "oppervlakteTerugmelding": "fiware:oppervlakteTerugmelding",
         "referenceValue": "fiware:referenceValue",
-        "verblijfObjectIdentificatie": "fiware:verblijfObjectIdentificatie"
+        "verblijfObjectIdentificatie": "fiware:verblijfObjectIdentificatie",
+        "adresZoekId": "fiware:adresZoekId",
+        "adresseerbaarObjectIdentificatie": "fiware:adresseerbaarObjectIdentificatie",
+        "adresWeergaveNaam": "fiware:adresWeergaveNaam"
     }
 }
